@@ -8,9 +8,9 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        pretendard: ["var(--font-pretendard)"],
+        lato: ["var(--font-lato)"],
       },
     },
   },

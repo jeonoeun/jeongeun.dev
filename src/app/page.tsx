@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Card from "@/components/Card";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import projects from "@/data/projects";
 import IntroSection from "@/components/home/IntroSection";
+import Card from "@/components/home/Card";
 
 export default function Home() {
   const target = useRef<HTMLDivElement>(null);

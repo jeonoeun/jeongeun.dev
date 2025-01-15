@@ -19,7 +19,7 @@ const socialLinks = [
 
 const IntroSection = () => {
   return (
-    <div className="sticky top-0 z-10 bg-[#2DC26B] font-lato">
+    <div className="sticky top-0 z-10 font-lato bg-[linear-gradient(to_right_top,_#fcc33c,_#ffb13a,_#ff9f3d,_#ff8c42,_#ff7a49,_#f1813c,_#e28832,_#d28d2b,_#a9a636,_#7db75e,_#4ac291,_#00c9c2)]">
       <Layout>
         <div className="pt-[80px] text-white">
           <div className="pt-32 pb-16">
@@ -27,17 +27,18 @@ const IntroSection = () => {
               <span>Hello, I&apos;m</span>
               <span>Jeongeun! 👋</span>
             </p>
-            <p className="text-lg mb-10 font-light">
-              Front-end Developer & Front-end Developer
+            <p className="text-lg mb-16 font-light">
+              — Learner, Challenger, and Front-end Developer
             </p>
             <p className="mb-20 leading-loose">
-              <strong>Keep looking. Don&apos;t settle.</strong> 안주하지 않고
-              항상 더 나은 길을 고민하고 탐색하는 개발자를 꿈꾸고 있어요.
-              끊임없이 배우고 도전하며, 세상을 조금 더 편리하고 아름답게 만드는
-              개발을 지향합니다. 재사용성과 유지보수성을 고려한 직관적이고
-              효율적인 컴포넌트 기반 개발에 관심이 많으며, 이를 위해 최신
-              프론트엔드 트렌드와 기술을 꾸준히 학습하고 적용하려 노력하고
-              있어요.
+              <span className="font-semibold text-lg">
+                Keep looking. Don&apos;t settle.
+              </span>{" "}
+              안주하지 않고 항상 더 나은 길을 고민하고 탐색하는 개발자를 꿈꾸고
+              있어요. 세상을 조금 더 편리하고 아름답게 만드는 개발을 지향합니다.
+              재사용성과 유지보수성을 고려한 직관적이고 효율적인 컴포넌트 기반
+              개발에 관심이 많으며, 이를 위해 최신 프론트엔드 트렌드와 기술을
+              꾸준히 학습하고 적용하려 노력하고 있어요.
             </p>
             <div className="flex items-center text-xl gap-3">
               {socialLinks.map((link, index) => (

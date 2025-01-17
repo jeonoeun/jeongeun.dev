@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 import { Lato } from "next/font/google";
 import "./globals.css";
 
+import "react-notion-x/src/styles.css";
+import "prismjs/themes/prism-tomorrow.css";
+import "katex/dist/katex.min.css";
+
 const pretendard = localFont({
   src: "../fonts/PretendardVariable.woff2",
   display: "swap",

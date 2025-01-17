@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import {
   IoLogoGithub,
   IoLogoLinkedin,
@@ -23,8 +22,9 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="w-full h-[130px] text-[13px]">
-      <div className="max-w-[1024px] h-full mx-auto px-4">
+      <div className="max-w-[900px] h-full mx-auto px-4">
         <div className="flex flex-col items-center justify-center h-full gap-3 md:flex-row">
+          <p>ⓒ 2025 Jeongeun Lee. All rights reserved.</p>
           <div className="flex items-center gap-4">
             {socialLinks.map((link, index) => (
               <Link key={index} href={link.href} target="_blank">
@@ -32,7 +32,6 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-          <div>ⓒ 2025 Jeongeun Lee. All rights reserved.</div>
         </div>
       </div>
     </footer>

@@ -14,9 +14,9 @@ const Header = ({ isScrolled }: { isScrolled: boolean }) => {
       <div className="max-w-[900px] h-full mx-auto px-4 flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center justify-center rounded-full border border-[#000000] hover:border-[#F86254] hover:shadow-[0_0_21px_0_#F86254] overflow-hidden duration-300"
+          className="flex items-center justify-center rounded-full border hover:border-[#F86254] hover:shadow-[0_0_21px_0_#F86254] overflow-hidden duration-300"
         >
-          <div className="w-8 h-8 rounded-full overflow-hidden bg-[#f5f4ff]">
+          <div className="w-8 h-8 rounded-full overflow-hidden">
             <Image src={LogoImage} alt="" />
           </div>
         </Link>

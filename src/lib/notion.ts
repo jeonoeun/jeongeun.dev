@@ -14,6 +14,12 @@ export const getDatabaseItems = async () => {
 
   const res = await notionClient.databases.query({
     database_id: databaseId!,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
   });
 
   return res.results;

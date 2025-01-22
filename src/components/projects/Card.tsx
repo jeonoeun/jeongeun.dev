@@ -22,6 +22,7 @@ const Card = ({ title, slug, des, lastUpdated, type, cover }: CardProps) => {
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             objectFit="cover"
+            className="hover:scale-105 duration-300"
           />
         </div>
         <div className="flex flex-col gap-2">

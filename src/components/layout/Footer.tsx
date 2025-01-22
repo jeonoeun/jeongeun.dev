@@ -13,10 +13,14 @@ const socialLinks = [
     icon: <IoLogoGithub />,
     title: "Github",
   },
+  {
+    href: "https://jeongeun.hashnode.dev/",
+    icon: <FaHashnode />,
+    title: "Hashnode",
+  },
   { href: "/", icon: <IoLogoLinkedin />, title: "Linkedin" },
-  { href: "/", icon: <FaHashnode />, title: "Hashnode" },
-  { href: "/", icon: <IoDocumentText />, title: "Resume" },
   { href: "/", icon: <IoMailUnread />, title: "Contact" },
+  { href: "/", icon: <IoDocumentText />, title: "Resume" },
 ];
 
 const Footer = () => {

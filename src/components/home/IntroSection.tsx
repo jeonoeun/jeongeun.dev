@@ -10,10 +10,14 @@ import { FaHashnode } from "react-icons/fa6";
 
 const socialLinks = [
   { href: "https://github.com/jeonoeun", icon: <IoLogoGithub /> },
+  {
+    href: "https://jeongeun.hashnode.dev/",
+    icon: <FaHashnode />,
+    title: "Hashnode",
+  },
   { href: "/", icon: <IoLogoLinkedin /> },
-  { href: "/", icon: <FaHashnode /> },
-  { href: "/", icon: <IoDocumentText /> },
   { href: "/", icon: <IoMailUnread /> },
+  { href: "/", icon: <IoDocumentText /> },
 ];
 
 const IntroSection = () => {

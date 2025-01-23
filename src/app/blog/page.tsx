@@ -25,7 +25,7 @@ const Blog = async () => {
           에 올리고 있어요.
         </p>
         <TagList items={tags} />
-        <PostTableList listType="recent" />
+        <PostTableList listType="all" />
       </main>
       <Footer />
     </>

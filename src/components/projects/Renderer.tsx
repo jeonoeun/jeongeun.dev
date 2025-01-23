@@ -2,9 +2,10 @@
 
 import { NotionRenderer } from "react-notion-x";
 import dynamic from "next/dynamic";
+import { ExtendedRecordMap } from "notion-types";
 
 type RendererProps = {
-  recordMap: any;
+  recordMap: ExtendedRecordMap;
   rootPageId: string;
 };
 

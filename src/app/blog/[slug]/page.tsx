@@ -29,19 +29,21 @@ const Post = async ({ params }: { params: { slug: string } }) => {
               <div className="flex flex-col items-start justify-center gap-4">
                 {coverImageUrl !== "" && (
                   <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden">
-                    <Image
-                      src={coverImageUrl}
-                      alt={title}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      objectFit="cover"
-                    />
+                    {coverImageUrl && (
+                      <Image
+                        src={coverImageUrl}
+                        alt={title}
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        objectFit="cover"
+                      />
+                    )}
                   </div>
                 )}
                 <h1 className="text-[40px] font-bold">{title}</h1>
                 <div className="flex items-center gap-2">
-                  {tags.map((tag: { id: string; name: string }) => (
+                  {tags?.map((tag: { id: string; name: string }) => (
                     <span
                       key={tag.id}
                       className="border px-[10px] py-1 rounded-full text-[13px] font-medium text-[#4E5968] bg-[#F2F4F6]"

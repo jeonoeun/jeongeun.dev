@@ -10,8 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "@/assets/logo.png";
 
-const Post = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
 
   if (!post) return null;

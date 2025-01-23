@@ -10,8 +10,12 @@ import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
-const ProjectDetail = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+const ProjectDetail = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
   const project: PageObjectResponse | undefined = await getDataBySlug(slug);
 
   if (!project) {

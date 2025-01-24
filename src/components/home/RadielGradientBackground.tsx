@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const RadialGradientBackground = ({
@@ -9,6 +9,7 @@ const RadialGradientBackground = ({
   children: React.ReactNode;
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -19,15 +20,36 @@ const RadialGradientBackground = ({
       const mouseYpercentage = Math.round((event.pageY / windowHeight) * 100);
       setMousePosition({ x: mouseXpercentage, y: mouseYpercentage });
     };
-    document.addEventListener("mousemove", handleMouseMove);
+
+    const handleMouseEnter = () => {
+      document.addEventListener("mousemove", handleMouseMove);
+    };
+
+    const handleMouseLeave = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+
+    const containerElement = containerRef.current;
+
+    if (containerElement) {
+      containerElement.addEventListener("mouseenter", handleMouseEnter);
+      containerElement.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
+      if (containerElement) {
+        containerElement.removeEventListener("mouseenter", handleMouseEnter);
+        containerElement.removeEventListener("mouseleave", handleMouseLeave);
+      }
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
-    <div className="sticky top-0 left-0 w-full z-10 font-lato">
+    <div
+      ref={containerRef}
+      className="sticky top-0 left-0 w-full z-10 font-lato"
+    >
       <motion.div
         animate={{
           backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,

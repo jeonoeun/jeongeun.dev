@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import {
   IoLogoGithub,
   IoLogoLinkedin,
@@ -7,6 +6,7 @@ import {
   IoDocumentText,
 } from "react-icons/io5";
 import { FaHashnode } from "react-icons/fa6";
+import RadialGradientBackground from "./RadielGradientBackground";
 
 const socialLinks = [
   { href: "https://github.com/jeonoeun", icon: <IoLogoGithub /> },
@@ -22,9 +22,9 @@ const socialLinks = [
 
 const IntroSection = () => {
   return (
-    <div className="sticky top-0 z-10 font-lato bg-[linear-gradient(to_right_top,_#fcc33c,_#ffb13a,_#ff9f3d,_#ff8c42,_#ff7a49,_#f1813c,_#e28832,_#d28d2b,_#a9a636,_#7db75e,_#4ac291,_#00c9c2)]">
-      <div className="max-w-[900px] mx-auto px-4">
-        <div className="pt-[80px] text-white">
+    <RadialGradientBackground>
+      <div className="max-w-[900px] mx-auto px-4 text-white">
+        <div className="pt-[80px]">
           <div className="pt-32 pb-16">
             <p className="font-black text-5xl mb-4 flex flex-col gap-4 md:flex-row">
               <span>Hello, I&apos;m</span>
@@ -55,7 +55,7 @@ const IntroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </RadialGradientBackground>
   );
 };
 

@@ -1,7 +1,7 @@
 export interface ExtractedPageProperties {
   title: string;
   slug: string;
-  description: string;
+  description?: string | null;
   tags?: { name: string; id: string }[];
   date: string;
   type: string;

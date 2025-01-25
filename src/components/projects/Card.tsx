@@ -32,7 +32,7 @@ const Card = ({
             <span>{date}</span>
           </div>
           <p className="font-bold text-lg">{title}</p>
-          <p className="text-sm">{description}</p>
+          {description && <p className="text-sm">{description}</p>}
         </div>
       </Link>
     </div>

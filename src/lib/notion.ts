@@ -119,8 +119,7 @@ export const extractPageProperties = (
 ): ExtractedPageProperties => {
   const title = item.properties?.Name?.title[0]?.plain_text || "Untitled";
   const slug = item.properties?.Slug?.rich_text[0]?.plain_text || "No Slug";
-  const description =
-    item.properties?.Description?.rich_text[0]?.plain_text || "No description";
+  const description = item.properties?.Description?.rich_text[0]?.plain_text;
   const tags = item.properties?.Tags?.multi_select || [];
   const date = item.properties?.Date?.date?.start || "No date";
   const type = item.properties?.Type?.select?.name || "No type";

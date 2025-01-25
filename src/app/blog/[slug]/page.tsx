@@ -27,18 +27,16 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
           <div className="w-full flex justify-center items-center">
             <div className="w-[720px] max-w-[720px] p-4 pt-9">
               <div className="flex flex-col items-start justify-center gap-4">
-                {coverImageUrl !== "" && (
+                {coverImageUrl && (
                   <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden">
-                    {coverImageUrl && (
-                      <Image
-                        src={coverImageUrl}
-                        alt={title}
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        objectFit="cover"
-                      />
-                    )}
+                    <Image
+                      src={coverImageUrl}
+                      alt={title}
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      objectFit="cover"
+                    />
                   </div>
                 )}
                 <h1 className="text-[40px] font-bold">{title}</h1>

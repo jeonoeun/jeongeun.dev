@@ -10,13 +10,13 @@ const Header = ({ isScrolled }: { isScrolled: boolean }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full h-[65px] z-50 transition-colors duration-300 font-medium text-[15px] ${
+      className={`fixed top-0 left-0 w-full h-[65px] z-50 transition-colors duration-300 font-medium text-[15px] text-[#37352F] ${
         isScrolled
           ? "bg-[rgba(255,255,255,0.8)] backdrop-blur-md backdrop-saturate-180"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[900px] h-full mx-auto px-4 flex items-center justify-between">
+      <div className="max-w-[1500px] h-full mx-auto px-4 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center justify-center rounded-full border hover:border-[#F86254] hover:shadow-[0_0_21px_0_#F86254] overflow-hidden duration-300"
@@ -34,10 +34,8 @@ const Header = ({ isScrolled }: { isScrolled: boolean }) => {
             <li>
               <Link
                 href="/"
-                className={`rounded px-6 py-2 duration-100 ${
-                  pathname === "/"
-                    ? "text-[#F86254]"
-                    : "hover:opacity-100 opacity-30"
+                className={`rounded px-6 py-2 duration-100 hover:text-[#F86254] ${
+                  pathname === "/" ? "text-[#F86254]" : ""
                 }`}
               >
                 Home
@@ -46,10 +44,8 @@ const Header = ({ isScrolled }: { isScrolled: boolean }) => {
             <li>
               <Link
                 href="/projects"
-                className={`rounded px-6 py-2 duration-300 ${
-                  pathname.includes("/projects")
-                    ? "text-[#F86254]"
-                    : "hover:opacity-100 opacity-30"
+                className={`rounded px-6 py-2 duration-300 hover:text-[#F86254] ${
+                  pathname.includes("/projects") ? "text-[#F86254]" : ""
                 }`}
               >
                 Projects
@@ -58,10 +54,8 @@ const Header = ({ isScrolled }: { isScrolled: boolean }) => {
             <li>
               <Link
                 href="/blog"
-                className={`rounded px-6 py-2 pr-0 duration-300 ${
-                  pathname.includes("/blog")
-                    ? "text-[#F86254]"
-                    : "hover:opacity-100 opacity-30"
+                className={`rounded px-6 py-2 pr-0 duration-300 hover:text-[#F86254] ${
+                  pathname.includes("/blog") ? "text-[#F86254]" : ""
                 }`}
               >
                 Blog

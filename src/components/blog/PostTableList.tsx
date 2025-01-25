@@ -59,7 +59,7 @@ const PostTableList = async ({ listType }: { listType: string }) => {
                     {tags?.slice(0, 2).map((tag) => (
                       <span
                         key={tag.id}
-                        className="border px-[10px] py-1 rounded-full text-[13px] font-medium text-[#4E5968] text-nowrap "
+                        className="border px-[10px] py-1 rounded-full text-[13px] font-medium text-[#4E5968] text-nowrap"
                       >
                         {tag.name}
                       </span>

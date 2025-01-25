@@ -24,7 +24,7 @@ const ProjectList = async ({ type }: { type: string }) => {
             title={title}
             slug={slug}
             description={description}
-            date={date}
+            date={date.slice(0, 7)}
             type={type}
             coverImageUrl={coverImageUrl}
           />

@@ -46,10 +46,11 @@ const ProjectDetail = async ({
               <IoArrowBack />
               <span>목록으로</span>
             </Link>
+
             <div className="flex flex-col items-center justify-center gap-2">
               <h1 className="text-[40px] font-bold">{title}</h1>
               <p className="text-[#8B95A1]">
-                {type}・{date}
+                {type}・{date.slice(0, 7)}
               </p>
             </div>
           </div>

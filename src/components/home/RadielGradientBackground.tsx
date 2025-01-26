@@ -31,6 +31,8 @@ const RadialGradientBackground = ({
 
     const containerElement = containerRef.current;
 
+    document.addEventListener("mousemove", handleMouseMove);
+
     if (containerElement) {
       containerElement.addEventListener("mouseenter", handleMouseEnter);
       containerElement.addEventListener("mouseleave", handleMouseLeave);

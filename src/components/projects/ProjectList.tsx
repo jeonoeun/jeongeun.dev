@@ -1,5 +1,6 @@
-import { extractPageProperties, getDatabaseItems } from "@/lib/notion";
+import { getDatabaseItems } from "@/lib/notion";
 import Card from "./Card";
+import { extractPageProperties } from "@/utils/notion";
 
 const ProjectList = async ({ type }: { type: string }) => {
   const data = await getDatabaseItems();

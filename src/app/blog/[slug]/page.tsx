@@ -1,11 +1,9 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Renderer from "@/components/projects/Renderer";
-import {
-  extractPageProperties,
-  getPageData,
-  getPostBySlug,
-} from "@/lib/notion";
+import { getPageData, getPostBySlug } from "@/lib/notion";
+import { extractPageProperties } from "@/utils/notion";
+
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "@/assets/logo.png";

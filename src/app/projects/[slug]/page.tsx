@@ -1,14 +1,11 @@
-import {
-  extractPageProperties,
-  getDataBySlug,
-  getPageData,
-} from "@/lib/notion";
+import { getDataBySlug, getPageData } from "@/lib/notion";
 import Renderer from "@/components/projects/Renderer";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { extractPageProperties } from "@/utils/notion";
 
 const ProjectDetail = async ({
   params,

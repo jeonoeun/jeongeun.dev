@@ -2,7 +2,7 @@ import PostTableList from "@/components/blog/PostTableList";
 import TagList from "@/components/blog/TagList";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import { getPostTags } from "@/lib/notion";
+import { getPostTags } from "@/lib/blog";
 
 const Blog = async () => {
   const tags = await getPostTags();

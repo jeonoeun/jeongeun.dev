@@ -4,7 +4,7 @@ export interface ExtractedPageProperties {
   description?: string | null;
   tags?: { name: string; id: string }[];
   date: string;
-  type: string;
+  type?: string;
   coverImageUrl: string | null;
   iconElement?: string | null | undefined;
 }
@@ -45,4 +45,20 @@ export interface NotionPage {
     | null
     | undefined;
   properties?: NotionProperty;
+}
+
+export interface NotionQueryBody {
+  filter?: {
+    property: string;
+    rich_text?: {
+      equals: string;
+    };
+    select?: {
+      equals: string;
+    };
+  };
+  sorts?: {
+    property: string;
+    direction: "ascending" | "descending";
+  }[];
 }

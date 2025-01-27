@@ -1,9 +1,9 @@
-import { getDatabaseItems } from "@/lib/notion";
+import { getProjectItems } from "@/lib/project";
 import Card from "./Card";
 import { extractPageProperties } from "@/utils/notion";
 
 const ProjectList = async ({ type }: { type: string }) => {
-  const data = await getDatabaseItems();
+  const data = await getProjectItems();
 
   const projects = data.filter((project) => {
     if (type === "featured") {

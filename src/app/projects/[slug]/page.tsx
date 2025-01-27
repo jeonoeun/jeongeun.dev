@@ -1,4 +1,4 @@
-import { getDataBySlug, getPageData } from "@/lib/notion";
+import { getPageBySlug, getPageData } from "@/lib/notion";
 import Renderer from "@/components/projects/Renderer";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,7 +13,10 @@ const ProjectDetail = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const project: PageObjectResponse | undefined = await getDataBySlug(slug);
+  const project: PageObjectResponse | null = await getPageBySlug(
+    slug,
+    "project"
+  );
 
   if (!project) {
     return (

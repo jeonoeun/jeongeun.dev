@@ -1,4 +1,4 @@
-import { getBlogPosts } from "@/lib/notion";
+import { getBlogPosts } from "@/lib/blog";
 import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,7 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Renderer from "@/components/projects/Renderer";
-import { getPageData, getPostBySlug } from "@/lib/notion";
+import { getPageBySlug, getPageData } from "@/lib/notion";
 import { extractPageProperties } from "@/utils/notion";
 
 import Image from "next/image";
@@ -10,7 +10,7 @@ import LogoImage from "@/assets/logo.png";
 
 const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const post = await getPageBySlug(slug, "post");
 
   if (!post) return null;
 

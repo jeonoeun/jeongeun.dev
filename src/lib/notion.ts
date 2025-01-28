@@ -1,4 +1,4 @@
-import { NotionPage, NotionQueryBody } from "@/types/notion";
+import { NotionPage } from "@/types/notion";
 import { Client } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NotionAPI } from "notion-client";
@@ -14,8 +14,7 @@ export const projectDatabaseId = process.env.NOTION_PROJECT_DATABASE_ID;
 export const blogDatabaseId = process.env.NOTION_BLOG_DATABASE_ID;
 
 export const queryNotionDatabase = async (
-  databaseId: string,
-  body: NotionQueryBody
+  databaseId: string
 ): Promise<NotionPage[]> => {
   const res = await fetch(
     `https://api.notion.com/v1/databases/${databaseId}/query`,
@@ -23,10 +22,17 @@ export const queryNotionDatabase = async (
       headers: {
         Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
         "Notion-Version": "2022-06-28",
+        "Content-Type": "application/json",
       },
       method: "POST",
       next: { revalidate: 60 },
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        filter: {
+          property: "Status",
+          select: { equals: "published" },
+        },
+        sorts: [{ property: "Date", direction: "descending" }],
+      }),
     }
   );
 

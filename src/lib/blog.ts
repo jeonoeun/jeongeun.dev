@@ -2,13 +2,7 @@ import { NotionPage } from "@/types/notion";
 import { blogDatabaseId, notionClient, queryNotionDatabase } from "./notion";
 
 export const getBlogPosts = async (): Promise<NotionPage[]> => {
-  return queryNotionDatabase(blogDatabaseId!, {
-    filter: {
-      property: "Status",
-      select: { equals: "published" },
-    },
-    sorts: [{ property: "Date", direction: "descending" }],
-  });
+  return queryNotionDatabase(blogDatabaseId!);
 };
 
 export const getPostTags = async (): Promise<string[]> => {

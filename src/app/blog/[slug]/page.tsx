@@ -7,6 +7,7 @@ import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "@/assets/logo.png";
+import Comment from "@/components/blog/Comment";
 
 const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
@@ -22,7 +23,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
       <Header isScrolled={true} />
       {post && (
         <main className="my-[65px] text-[#37352F]">
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex flex-col justify-center items-center">
             <div className="w-[720px] max-w-[720px] p-4 pt-9">
               <div className="flex flex-col items-start justify-center gap-4">
                 {coverImageUrl && (
@@ -66,9 +67,9 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
                 </div>
               </div>
             </div>
+            <Renderer recordMap={recordMap} rootPageId={post.id} />
+            <Comment />
           </div>
-
-          <Renderer recordMap={recordMap} rootPageId={post.id} />
         </main>
       )}
       <Footer />

@@ -3,10 +3,11 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 
 interface Props {
-  searchParams: Record<string, string>;
+  searchParams: Promise<Record<string, string>>;
 }
 
-const Blog = ({ searchParams }: Props) => {
+const Blog = async (props: Props) => {
+  const searchParams = await props.searchParams;
   const selectedTag = searchParams.tag ?? "All";
 
   return (

@@ -15,12 +15,13 @@ export async function generateStaticParams() {
   const projects = await getProjectItems();
 
   return projects.map((project) => ({
-    slug: project.properties?.Slug?.rich_text[0]?.plain_text,
+    params: { slug: project.properties?.Slug?.rich_text[0]?.plain_text || "" },
   }));
 }
 
 const ProjectDetail = async ({ params }: Props) => {
-  const project = await getPageBySlug(params.slug, "project");
+  const { slug } = await params;
+  const project = await getPageBySlug(slug, "project");
 
   if (!project) {
     return (

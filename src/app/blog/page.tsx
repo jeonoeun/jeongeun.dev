@@ -2,11 +2,11 @@ import BlogContents from "@/components/blog/BlogContents";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 
-interface BlogProps {
+interface Props {
   searchParams: Record<string, string>;
 }
 
-const Blog = ({ searchParams }: BlogProps) => {
+const Blog = ({ searchParams }: Props) => {
   const selectedTag = searchParams.tag ?? "All";
 
   return (

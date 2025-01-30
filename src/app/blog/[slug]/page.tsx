@@ -11,21 +11,18 @@ import Comment from "@/components/blog/Comment";
 import { notFound } from "next/navigation";
 import { getBlogPosts } from "@/lib/blog";
 
-interface Props {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
 
   return posts.map((post) => ({
-    params: { slug: post.properties?.Slug?.rich_text[0]?.plain_text || "" },
+    params: { slug: post.properties?.Slug?.rich_text[0]?.plain_text },
   }));
 }
 
-const Post = async ({ params }: Props) => {
-  const { slug } = await params;
+const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const slug = (await params).slug;
   const post = await getPageBySlug(slug, "post");
+
   if (!post) return notFound();
 
   const recordMap = await getPageData(post.id);

@@ -7,15 +7,19 @@ import { IoArrowBack } from "react-icons/io5";
 import { extractPageProperties } from "@/utils/notion";
 import { getProjectItems } from "@/lib/project";
 
+interface Props {
+  params: { slug: string };
+}
+
 export async function generateStaticParams() {
   const projects = await getProjectItems();
 
   return projects.map((project) => ({
-    params: { slug: project.properties?.Slug?.rich_text[0]?.plain_text },
+    slug: project.properties?.Slug?.rich_text[0]?.plain_text,
   }));
 }
 
-const ProjectDetail = async ({ params }: { params: { slug: string } }) => {
+const ProjectDetail = async ({ params }: Props) => {
   const project = await getPageBySlug(params.slug, "project");
 
   if (!project) {

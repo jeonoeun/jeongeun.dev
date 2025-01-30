@@ -4,19 +4,19 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { IoArrowBack } from "react-icons/io5";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { extractPageProperties } from "@/utils/notion";
+import { getProjectItems } from "@/lib/project";
 
-const ProjectDetail = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
-  const { slug } = await params;
-  const project: PageObjectResponse | null = await getPageBySlug(
-    slug,
-    "project"
-  );
+export async function generateStaticParams() {
+  const projects = await getProjectItems();
+
+  return projects.map((project) => ({
+    params: { slug: project.properties?.Slug?.rich_text[0]?.plain_text },
+  }));
+}
+
+const ProjectDetail = async ({ params }: { params: { slug: string } }) => {
+  const project = await getPageBySlug(params.slug, "project");
 
   if (!project) {
     return (

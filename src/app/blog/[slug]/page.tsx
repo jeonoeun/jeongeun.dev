@@ -8,12 +8,20 @@ import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "@/assets/logo.png";
 import Comment from "@/components/blog/Comment";
+import { notFound } from "next/navigation";
+import { getBlogPosts } from "@/lib/blog";
 
-const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
-  const { slug } = await params;
-  const post = await getPageBySlug(slug, "post");
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
 
-  if (!post) return null;
+  return posts.map((post) => ({
+    params: { slug: post.properties?.Slug?.rich_text[0]?.plain_text },
+  }));
+}
+
+const Post = async ({ params }: { params: { slug: string } }) => {
+  const post = await getPageBySlug(params.slug, "post");
+  if (!post) return notFound();
 
   const recordMap = await getPageData(post.id);
   const { title, date, tags, coverImageUrl } = extractPageProperties(post);

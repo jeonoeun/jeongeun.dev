@@ -33,7 +33,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
       <Header isScrolled={true} />
       {post && (
         <main className="my-[65px] text-[#37352F]">
-          <div className="w-full flex flex-col justify-center items-center">
+          <div className="w-full flex justify-center items-center">
             <div className="w-[720px] max-w-[720px] p-4 pt-9">
               <div className="flex flex-col items-start justify-center gap-4">
                 {coverImageUrl && (
@@ -48,7 +48,9 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
                     />
                   </div>
                 )}
-                <h1 className="text-[40px] font-bold">{title}</h1>
+                <h1 className="text-[32px] font-bold lg:text-[40px]">
+                  {title}
+                </h1>
                 <div className="flex items-center gap-2">
                   {tags?.map((tag: { id: string; name: string }) => (
                     <span
@@ -77,9 +79,9 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
                 </div>
               </div>
             </div>
-            <Renderer recordMap={recordMap} rootPageId={post.id} />
-            <Comment />
           </div>
+          <Renderer recordMap={recordMap} rootPageId={post.id} />
+          <Comment />
         </main>
       )}
       <Footer />

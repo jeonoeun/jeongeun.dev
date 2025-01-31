@@ -13,10 +13,10 @@ const Blog = async (props: Props) => {
   return (
     <>
       <Header isScrolled={true} />
-      <main className="my-[65px] text-[#37352F] max-w-[1100px] mx-auto px-4 pt-12">
+      <main className="w-full my-[65px] text-[#37352F] max-w-[1100px] px-4 pt-12">
         <h1 className="font-medium text-5xl font-lato text-center">Blog</h1>
         <p className="text-sm pt-8 text-center">
-          ✷ 개발을 공부하며 학습한 내용과 경험을 기록한 포스트를 담은
+          ✷ 개발을 공부하며 학습한 내용과 경험을 기록한 포스트를 정리한
           블로그입니다. 공유하고 싶은 글은{" "}
           <a
             href="https://jeongeun.hashnode.dev/"

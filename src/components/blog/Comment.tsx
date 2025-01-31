@@ -21,7 +21,11 @@ const Comment = () => {
     commentRef.current.appendChild(script);
   }, []);
 
-  return <div ref={commentRef} className="w-[720px] max-w-[720px] p-4 mt-8" />;
+  return (
+    <div className="p-4 mt-8">
+      <div ref={commentRef} className="max-w-[720px]" />
+    </div>
+  );
 };
 
 export default Comment;

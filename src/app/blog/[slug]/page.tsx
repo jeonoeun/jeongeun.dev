@@ -3,7 +3,6 @@ import Header from "@/components/layout/Header";
 import Renderer from "@/components/projects/Renderer";
 import { getPageBySlug, getPageData } from "@/lib/notion";
 import { extractPageProperties } from "@/utils/notion";
-
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "@/assets/logo.png";
@@ -32,7 +31,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
     <>
       <Header isScrolled={true} />
       {post && (
-        <main className="my-[65px] text-[#37352F]">
+        <main className="my-[65px] text-[#37352F] mx-auto">
           <div className="w-full flex justify-center items-center">
             <div className="w-[720px] max-w-[720px] p-4 pt-9">
               <div className="flex flex-col items-start justify-center gap-4">
@@ -52,7 +51,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
                   {title}
                 </h1>
                 <div className="flex items-center gap-2">
-                  {tags?.map((tag: { id: string; name: string }) => (
+                  {tags?.map((tag) => (
                     <span
                       key={tag.id}
                       className="border px-[10px] py-1 rounded-full text-[13px] font-medium text-[#4E5968] bg-[#F2F4F6]"

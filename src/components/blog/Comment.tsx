@@ -22,8 +22,8 @@ const Comment = () => {
   }, []);
 
   return (
-    <div className="p-4 mt-8">
-      <div ref={commentRef} className="max-w-[720px]" />
+    <div className="p-4 mt-8 w-full">
+      <div ref={commentRef} className="max-w-[720px] mx-auto" />
     </div>
   );
 };

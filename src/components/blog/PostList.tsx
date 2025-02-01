@@ -16,7 +16,7 @@ const PostList = async ({ selectedTag }: { selectedTag: string }) => {
 
   return (
     <div>
-      <div className="mx-auto mt-12 pt-[10px] max-w-[700px] pr-5 lg:mt-0">
+      <div className="mx-auto mt-12 pt-[10px] max-w-[700px] pr-2 lg:pr-5 lg:mt-0">
         <div className="flex items-center justify-between">
           <div className="font-semibold text-sm">
             {selectedTag} ({filteredPosts.length})
@@ -39,7 +39,7 @@ const PostList = async ({ selectedTag }: { selectedTag: string }) => {
                         priority
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         objectFit="cover"
-                        className="hover:scale-105 duration-300"
+                        className="hover:scale-110 duration-300"
                       />
                     )}
                   </div>

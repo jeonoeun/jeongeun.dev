@@ -10,6 +10,8 @@ import Comment from "@/components/blog/Comment";
 import { notFound } from "next/navigation";
 import { getBlogPosts } from "@/lib/blog";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
 

@@ -7,6 +7,8 @@ import { IoArrowBack } from "react-icons/io5";
 import { extractPageProperties } from "@/utils/notion";
 import { getProjectItems } from "@/lib/project";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const projects = await getProjectItems();
 

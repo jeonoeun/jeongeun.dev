@@ -22,8 +22,9 @@ export default {
         text: {
           primary: "#37352F",
           secondary: "#4E5968",
-          muted: "#8B95A1",
+          darkGray: "#3C3C43",
           gray: "#6B6B6C",
+          muted: "#8B95A1",
         },
         background: {
           default: "#e5e7eb",

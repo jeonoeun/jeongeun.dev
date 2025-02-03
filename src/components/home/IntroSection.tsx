@@ -1,24 +1,5 @@
-import Link from "next/link";
-import {
-  IoLogoGithub,
-  IoLogoLinkedin,
-  IoMailUnread,
-  IoDocumentText,
-} from "react-icons/io5";
-import { FaHashnode } from "react-icons/fa6";
+import SocialLinks from "../common/SocialLinks";
 import RadialGradientBackground from "./RadielGradientBackground";
-
-const socialLinks = [
-  { href: "https://github.com/jeonoeun", icon: <IoLogoGithub /> },
-  {
-    href: "https://jeongeun.hashnode.dev/",
-    icon: <FaHashnode />,
-    title: "Hashnode",
-  },
-  { href: "/", icon: <IoLogoLinkedin /> },
-  { href: "/", icon: <IoMailUnread /> },
-  { href: "/", icon: <IoDocumentText /> },
-];
 
 const IntroSection = () => {
   return (
@@ -43,13 +24,7 @@ const IntroSection = () => {
                 목표로 배우고, 적용하며, 꾸준히 성장하기 위해 노력하고 있습니다.
               </p>
             </div>
-            <div className="flex items-center text-xl gap-3">
-              {socialLinks.map((link, index) => (
-                <Link key={index} href={link.href} target="_blank">
-                  {link.icon}
-                </Link>
-              ))}
-            </div>
+            <SocialLinks viewType="icon" />
           </div>
         </div>
       </div>

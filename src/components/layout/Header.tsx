@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import LogoImage from "@/assets/logo.png";
 import { usePathname } from "next/navigation";
+import DropdownMenu from "../header/DropdownMenu";
+import Nav from "../header/Nav";
+import MainLogo from "../header/MainLogo";
 
 const Header = ({ isScrolled }: { isScrolled: boolean }) => {
   const pathname = usePathname();
@@ -17,52 +17,9 @@ const Header = ({ isScrolled }: { isScrolled: boolean }) => {
       }`}
     >
       <div className="max-w-1500 h-full mx-auto px-4 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center justify-center rounded-full border hover:border-primary hover:shadow-[0_0_21px_0_#F86254] overflow-hidden duration-300"
-        >
-          <div className="w-8 h-8 rounded-full overflow-hidden">
-            <Image
-              src={LogoImage}
-              alt=""
-              className="hover:scale-105 duration-300"
-            />
-          </div>
-        </Link>
-        <nav>
-          <ul className="flex items-center text-[14px]">
-            <li>
-              <Link
-                href="/"
-                className={`rounded px-6 py-2 duration-150 hover:text-primary ${
-                  pathname === "/" ? "text-primary " : ""
-                }`}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/projects"
-                className={`rounded px-6 py-2 duration-150 hover:text-primary ${
-                  pathname.includes("/projects") ? "text-primary" : ""
-                }`}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className={`rounded px-6 py-2 duration-150 hover:text-primary ${
-                  pathname.includes("/blog") ? "text-primary" : ""
-                }`}
-              >
-                Blog
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <MainLogo />
+        <Nav pathname={pathname} />
+        <DropdownMenu pathname={pathname} />
       </div>
     </header>
   );

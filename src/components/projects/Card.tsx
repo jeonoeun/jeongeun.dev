@@ -27,12 +27,14 @@ const Card = ({
           )}
         </div>
         <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between text-[11px]">
+          <div className="flex items-center justify-between text-11">
             <span className="border px-2 py-1 rounded">{type}</span>
             <span>{date}</span>
           </div>
           <p className="font-bold text-lg">{title}</p>
-          {description && <p className="text-sm">{description}</p>}
+          {description && (
+            <p className="text-13 text-text-secondary">{description}</p>
+          )}
         </div>
       </Link>
     </div>

@@ -24,7 +24,7 @@ export const extractPageProperties = (
   const slug = item.properties?.Slug?.rich_text[0]?.plain_text || "No Slug";
   const description = item.properties?.Description?.rich_text[0]?.plain_text;
   const tags = item.properties?.Tags?.multi_select || [];
-  const date = item.properties?.Date?.date?.start || "No date";
+  const created = item.properties?.Date?.date?.start || "No date";
   const type = item.properties?.Type?.select?.name || "No type";
 
   const iconElement = getIconElement(item.icon);
@@ -33,6 +33,11 @@ export const extractPageProperties = (
   const coverImageUrl = notionCoverUrl
     ? getPublishedImageUrl(notionCoverUrl, item.id)
     : null;
+
+  const date = `${created.slice(0, 4)}년 ${created.slice(
+    5,
+    7
+  )}월 ${created.slice(8, 10)}월`;
 
   return {
     title,

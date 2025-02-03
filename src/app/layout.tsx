@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${pretendard.variable} ${lato.variable}`}>
+    <html lang="ko" className={`${pretendard.variable} ${lato.variable}`}>
       <body className="font-pretendard antialiased">{children}</body>
     </html>
   );

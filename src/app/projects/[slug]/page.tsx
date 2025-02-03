@@ -2,10 +2,11 @@ import { getPageBySlug, getPageData } from "@/lib/notion";
 import Renderer from "@/components/projects/Renderer";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
-import { IoArrowBack } from "react-icons/io5";
 import { extractPageProperties } from "@/utils/notion";
 import { getProjectItems } from "@/lib/project";
+import ProjectDetailHeader from "@/components/projects/ProjectDetailHeader";
+import MainLayout from "@/components/layout/MainLayout";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600;
 
@@ -25,46 +26,18 @@ const ProjectDetail = async ({
   const slug = (await params).slug;
   const project = await getPageBySlug(slug, "project");
 
-  if (!project) {
-    return (
-      <>
-        <Header isScrolled={true} />
-        <main className="my-[65px] text-center">
-          <p>프로젝트를 찾을 수 없어요.</p>
-          <Link href="/projects" className="text-[#F86254] underline">
-            목록으로 돌아가기
-          </Link>
-        </main>
-        <Footer />
-      </>
-    );
-  }
+  if (!project) return notFound();
 
   const recordMap = await getPageData(project.id);
-  const { title, type, date } = extractPageProperties(project);
+  const projectHeaderData = extractPageProperties(project);
 
   return (
     <>
       <Header isScrolled={true} />
-      <main className="my-[65px] text-[#37352F]">
-        <div className="w-full flex justify-center items-center">
-          <div className="w-[720px] max-w-[720px] p-4 pt-9">
-            <Link href="/projects" className="flex items-center gap-1 mb-12">
-              <IoArrowBack />
-              <span>목록으로</span>
-            </Link>
-
-            <div className="flex flex-col items-center justify-center gap-2">
-              <h1 className="text-[40px] font-bold">{title}</h1>
-              <p className="text-[#8B95A1]">
-                {type}・{date.slice(0, 7)}
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <MainLayout maxWidth="720">
+        <ProjectDetailHeader {...projectHeaderData} />
         <Renderer recordMap={recordMap} rootPageId={project.id} />
-      </main>
+      </MainLayout>
       <Footer />
     </>
   );

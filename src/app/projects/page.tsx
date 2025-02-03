@@ -1,8 +1,10 @@
+import PageTitle from "@/components/common/PageTitle";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import MainLayout from "@/components/layout/MainLayout";
 import ProjectList from "@/components/projects/ProjectList";
 
-const types = [
+const projectTypes = [
   {
     title: "Featured Projects",
     des: "프로젝트의 기획부터 디자인, 개발까지 직접 완성해 본 개인 프로젝트들입니다. Next.js, React, TypeScript 등의 기술 스택을 사용해 반응형 웹을 중심으로 구현하면서, 사용자 경험을 최적화하고, 다양한 디바이스에서 일관된 성능과 디자인을 제공하는 것에 집중했습니다.",
@@ -23,20 +25,20 @@ const Projects = () => {
   return (
     <>
       <Header isScrolled={true} />
-      <main className="my-[65px] text-[#37352F] max-w-[900px] mx-auto px-4 pt-12">
-        <h1 className="font-medium text-5xl text-center font-lato pb-20">
-          Projects
-        </h1>
-        <div className="flex flex-col gap-12">
-          {types.map((item) => (
-            <div key={item.title}>
-              <h2 className="text-[22px] font-bold pb-3">{item.title}</h2>
-              <p className="text-[14px] leading-6">{item.des}</p>
-              <ProjectList type={item.type ? item.type : item.title} />
-            </div>
-          ))}
+      <MainLayout maxWidth="900">
+        <div className="p-4">
+          <PageTitle title="Projects" />
+          <div className="flex flex-col gap-12 pt-20">
+            {projectTypes.map((item) => (
+              <div key={item.title}>
+                <h2 className="text-xl font-bold pb-3">{item.title}</h2>
+                <p className="text-14 leading-6">{item.des}</p>
+                <ProjectList type={item.type ? item.type : item.title} />
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </MainLayout>
       <Footer />
     </>
   );

@@ -25,25 +25,22 @@ const IntroSection = () => {
     <RadialGradientBackground>
       <div className="max-w-[900px] mx-auto px-4 text-white">
         <div className="pt-[80px]">
-          <div className="pt-32 pb-16">
+          <div className="pt-20 pb-16">
             <p className="font-black text-5xl mb-4 flex flex-col gap-4 md:flex-row">
               <span>Hello, I&apos;m</span>
-              <span>Jeongeun! 👋</span>
+              <span>Jeongeun! 🏄‍♀️</span>
             </p>
             <p className="text-lg mb-16 font-light">
               — Learner, Challenger, Front-end Developer
             </p>
             <div className="mb-20 leading-loose">
-              <p className="font-semibold text-lg mb-2">
-                “이유 없는 코드는 없다.”
-              </p>
+              <p className="font-bold mb-2">💡 이유 없는 코드는 없다.</p>
               <p>
                 코드를 단순한 결과물로 보지 않고, 그 안에 담긴 의도와 목적을
-                정확히 이해하기 위해 끊임없이 공부하며 성장하고자 합니다.
-                재사용성과 유지보수성을 고려한 컴포넌트 기반 개발을 선호하며,
-                최신 프론트엔드 트렌드와 기술을 꾸준히 학습하고 이를 실제로
-                적용하기 위해 노력하고 있습니다. 세상을 조금 더 편리하고
-                아름답게 만드는 개발자가 되는 것을 꿈꾸고 있습니다.
+                정확히 이해하는 개발자가 되고자 합니다. 재사용성과 유지보수성을
+                고려한 컴포넌트 기반 개발을 선호하며, 웹 표준, 접근성, 아키텍처,
+                테스트 등 더 나은 개발을 위한 요소들을 고려하고 적용하는 것을
+                목표로 배우고, 적용하며, 꾸준히 성장하기 위해 노력하고 있습니다.
               </p>
             </div>
             <div className="flex items-center text-xl gap-3">

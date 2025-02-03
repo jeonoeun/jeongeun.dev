@@ -3,7 +3,7 @@ import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
 import Link from "next/link";
 
-const PostList = async ({ selectedTag }: { selectedTag: string }) => {
+const PostList = async ({ selectedTag }: { selectedTag?: string }) => {
   const posts = await getBlogPosts();
   const filteredPosts =
     selectedTag === "All"
@@ -15,7 +15,7 @@ const PostList = async ({ selectedTag }: { selectedTag: string }) => {
         );
 
   return (
-    <div>
+    <>
       <div className="mx-auto mt-12 pt-[10px] max-w-[700px] pr-2 lg:pr-5 lg:mt-0">
         <div className="flex items-center justify-between">
           <div className="font-semibold text-sm">
@@ -44,10 +44,10 @@ const PostList = async ({ selectedTag }: { selectedTag: string }) => {
                     )}
                   </div>
                   <div className="flex flex-col gap-2">
-                    <h4 className="font-semibold text-black text-[15px] lg:text-base">
+                    <h4 className="font-semibold text-black text-15 lg:text-base">
                       {title}
                     </h4>
-                    <p className="text-[14px] mb-3 lg:text-[15px]">
+                    <p className="text-14 lg:text-15 mb-3 text-text-secondary">
                       {description}
                     </p>
                     <div className="flex items-center gap-[6px] text-[12px] text-[#4e5968] lg:text-[13px]">
@@ -62,7 +62,7 @@ const PostList = async ({ selectedTag }: { selectedTag: string }) => {
           })}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 

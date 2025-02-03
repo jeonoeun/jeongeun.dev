@@ -2,13 +2,12 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Renderer from "@/components/projects/Renderer";
 import { getPageBySlug, getPageData } from "@/lib/notion";
-import { extractPageProperties } from "@/utils/notion";
-import Image from "next/image";
-import Link from "next/link";
-import LogoImage from "@/assets/logo.png";
 import Comment from "@/components/blog/Comment";
 import { notFound } from "next/navigation";
 import { getBlogPosts } from "@/lib/blog";
+import PostHeader from "@/components/blog/PostHeader";
+import { extractPageProperties } from "@/utils/notion";
+import MainLayout from "@/components/layout/MainLayout";
 
 export const revalidate = 60;
 
@@ -27,64 +26,16 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
   if (!post) return notFound();
 
   const recordMap = await getPageData(post.id);
-  const { title, date, tags, coverImageUrl } = extractPageProperties(post);
+  const postData = extractPageProperties(post);
 
   return (
     <>
       <Header isScrolled={true} />
-      {post && (
-        <main className="my-[65px] text-[#37352F] mx-auto">
-          <div className="w-full flex justify-center items-center">
-            <div className="w-[720px] max-w-[720px] p-4 pt-9">
-              <div className="flex flex-col items-start justify-center gap-4">
-                {coverImageUrl && (
-                  <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden">
-                    <Image
-                      src={coverImageUrl}
-                      alt={title}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      objectFit="cover"
-                    />
-                  </div>
-                )}
-                <h1 className="text-[32px] font-bold lg:text-[40px]">
-                  {title}
-                </h1>
-                <div className="flex items-center gap-2">
-                  {tags?.map((tag) => (
-                    <span
-                      key={tag.id}
-                      className="border px-[10px] py-1 rounded-full text-[13px] font-medium text-[#4E5968] bg-[#F2F4F6]"
-                    >
-                      #{tag.name}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center text-[16px] gap-1 mt-6">
-                  <div className="flex items-center gap-1">
-                    <Link
-                      href="/"
-                      className="flex items-center justify-center rounded-full w-6 h-6 border hover:border-[#F86254] hover:shadow-[0_0_21px_0_#F86254] overflow-hidden duration-300"
-                    >
-                      <div className="w-6 h-6 rounded-full overflow-hidden">
-                        <Image src={LogoImage} alt="logo" />
-                      </div>
-                    </Link>
-                    <span className="font-semibold">이정은(@jeonoeun)</span>
-                  </div>
-                  <span>・</span>
-                  <span className="text-[#8B95A1]">{date}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <Renderer recordMap={recordMap} rootPageId={post.id} />
-          <Comment />
-        </main>
-      )}
+      <MainLayout maxWidth="720">
+        <PostHeader {...postData} />
+        <Renderer recordMap={recordMap} rootPageId={post.id} />
+        <Comment />
+      </MainLayout>
       <Footer />
     </>
   );

@@ -25,6 +25,7 @@ export const queryNotionDatabase = async (
         "Content-Type": "application/json",
       },
       method: "POST",
+      next: { revalidate: 60 },
       body: JSON.stringify({
         filter: {
           property: "Status",

@@ -33,12 +33,15 @@ const DropdownMenu = ({ pathname }: { pathname: string }) => {
   }, [isMenuOpen]);
 
   return (
-    <div className="relative h-full" ref={menuRef}>
+    <div
+      className="relative h-full flex items-center justify-center"
+      ref={menuRef}
+    >
       <button
         onClick={() => {
           setIsMenuOpen(!isMenuOpen);
         }}
-        className="text-xl w-full h-full flex items-center justify-center text-text-darkGray group"
+        className="text-xl flex items-center justify-center text-text-darkGray group hover:bg-background-tag p-2 rounded"
       >
         <IoEllipsisHorizontal />
       </button>
@@ -69,7 +72,7 @@ const DropdownMenu = ({ pathname }: { pathname: string }) => {
                     {dropdownMenu.map((menu) => (
                       <li
                         key={menu.title}
-                        className="px-2 py-[6px] hover:bg-[#e7e7e7] rounded"
+                        className="px-2 py-2 hover:bg-[#e7e7e7] rounded"
                       >
                         <Link
                           href={menu.link}
@@ -85,7 +88,7 @@ const DropdownMenu = ({ pathname }: { pathname: string }) => {
                   </ul>
                 </div>
                 <div className="px-3 py-2 border-b">
-                  <button className="w-full flex items-center gap-1 px-3 py-[6px] hover:bg-[#e7e7e7] rounded">
+                  <button className="w-full flex items-center gap-1 px-3 py-2 hover:bg-[#e7e7e7] rounded">
                     <MdNightlight />
                     <span>다크모드</span>
                   </button>
@@ -98,7 +101,7 @@ const DropdownMenu = ({ pathname }: { pathname: string }) => {
                     {socialLinks.map((link, index) => (
                       <li
                         key={index}
-                        className="px-2 py-[6px] hover:bg-[#e7e7e7] rounded group"
+                        className="px-2 py-2 hover:bg-[#e7e7e7] rounded group"
                       >
                         <Link
                           href={link.href}

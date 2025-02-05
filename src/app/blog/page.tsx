@@ -3,10 +3,16 @@ import PageTitle from "@/components/common/PageTitle";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import MainLayout from "@/components/layout/MainLayout";
+import type { Metadata } from "next";
 
 interface Props {
   searchParams: Promise<Record<string, string>>;
 }
+
+export const metadata: Metadata = {
+  title: "Blog - jeongeun.dev",
+  description: "개발을 공부하며 학습한 내용과 경험을 기록했습니다.",
+};
 
 const Blog = async (props: Props) => {
   const searchParams = await props.searchParams;
@@ -19,8 +25,8 @@ const Blog = async (props: Props) => {
         <div className="p-4">
           <PageTitle title="Blog" />
           <p className="text-sm pt-8 text-center">
-            ✷ 개발을 공부하며 학습한 내용과 경험을 기록한 포스트를 정리한
-            블로그입니다. 공유하고 싶은 글은{" "}
+            ✷ 개발을 공부하며 학습한 내용과 경험을 기록했습니다. 공유하고 싶은
+            글은{" "}
             <a
               href="https://jeongeun.hashnode.dev/"
               target="_blank"

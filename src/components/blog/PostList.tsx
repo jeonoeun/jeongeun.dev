@@ -30,7 +30,7 @@ const PostList = async ({ selectedTag }: { selectedTag?: string }) => {
             return (
               <li key={post.id} className="py-6">
                 <Link href={`/blog/${slug}`} className="flex items-start gap-4">
-                  <div className="relative w-[100px] max-w-[100px] min-w-[100px] h-[69px] rounded-md overflow-hidden lg:w-[130px] lg:max-w-[130px] lg:min-w-[130px] lg:h-[90px]">
+                  <div className="relative w-[100px] max-w-[100px] min-w-[100px] h-[69px] rounded-md overflow-hidden lg:w-[130px] lg:max-w-[130px] lg:min-w-[130px] lg:h-[90px] border">
                     {coverImageUrl && (
                       <Image
                         src={coverImageUrl}

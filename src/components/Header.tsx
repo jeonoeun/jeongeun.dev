@@ -8,6 +8,9 @@ import {
   MdOutlineKeyboardDoubleArrowLeft,
 } from "react-icons/md";
 import profile from "../../public/images/profile.png";
+import Sidebar from "./Sidebar";
+import DarkModeToggle from "./DarkModeToggle";
+import SearchBar from "./SearchBar";
 
 const nav = [
   { name: "블로그", href: "/blog" },
@@ -68,8 +71,11 @@ export default function Header() {
               ))}
             </ul>
           </nav>
+          <SearchBar />
+          <DarkModeToggle />
         </div>
       </div>
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
   );
 }

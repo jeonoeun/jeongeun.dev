@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import CardGrid from "@/components/CardGrid";
 import Layout from "@/components/Layout";
 import PageTitle from "@/components/PageTitle";
 import SectionTitle from "@/components/SectionTitle";
@@ -47,7 +48,7 @@ export default async function Page(props: Props) {
           <SectionTitle>
             {selectedTag} ({filteredPosts.length})
           </SectionTitle>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[30px] gap-[50px]">
+          <CardGrid>
             {filteredPosts.map((post) => {
               const { title, slug, coverImageUrl, date, type } =
                 extractPageProperties(post);
@@ -66,7 +67,7 @@ export default async function Page(props: Props) {
                 </li>
               );
             })}
-          </ul>
+          </CardGrid>
         </div>
       </div>
     </Layout>

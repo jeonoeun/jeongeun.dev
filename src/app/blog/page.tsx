@@ -34,7 +34,7 @@ export default async function Page(props: Props) {
 
         <div>
           <SectionTitle>Tags</SectionTitle>
-          <ul className="flex items-center flex-wrap text-[14px]">
+          <ul className="flex items-center flex-wrap">
             {tags.map((tag, idx) => (
               <li key={idx} className="mr-1.5 mb-3">
                 <Tag name={tag} href={`/blog?tag=${tag}`} />

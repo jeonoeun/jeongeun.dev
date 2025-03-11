@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoLogoGithub } from "react-icons/io5";
 import { LuExternalLink } from "react-icons/lu";
+import { MdOutlineAccessTimeFilled } from "react-icons/md";
 
 const Card = ({
   title,
@@ -59,10 +60,13 @@ const Card = ({
         {date && (
           <div className="flex items-center gap-1 text-[13px] text-[#A09F9C]">
             <span>{date}</span>
-            <span>・</span>
-            <span>18분</span>
-            <span>・</span>
-            <span>1 comment</span>
+            <span>{"・"}</span>
+            <div className="flex items-center gap-0.5">
+              <MdOutlineAccessTimeFilled />
+              <span>{"18분"}</span>
+            </div>
+            <span>{"・"}</span>
+            <span>{"1 comment"}</span>
           </div>
         )}
       </div>

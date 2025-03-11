@@ -1,26 +1,9 @@
-type TocItem = {
-  id: string;
-  type: "header" | "sub_header" | "sub_sub_header";
-  text: string;
-};
-
-type RecordMap = {
-  block?: Record<
-    string,
-    {
-      value?: {
-        id?: string;
-        type?: string;
-        properties?: { title?: string[][] };
-      };
-    }
-  >;
-};
+import { ExtendedRecordMap } from "notion-types";
 
 export default function TableOfContents({
   recordMap,
 }: {
-  recordMap: RecordMap;
+  recordMap: ExtendedRecordMap;
 }) {
   const tocItems = extractTableOfContents(recordMap);
 
@@ -53,15 +36,14 @@ export default function TableOfContents({
   );
 }
 
-const extractTableOfContents = (recordMap: RecordMap): TocItem[] => {
+const extractTableOfContents = (recordMap: ExtendedRecordMap) => {
   if (!recordMap?.block) {
     return [];
   }
 
   return Object.values(recordMap.block)
-    .map((block) => {
-      const value = block.value;
-      if (!value?.id || !value?.type) return null;
+    .map(({ value }) => {
+      if (!value || !value.id || !value.type) return null;
 
       if (["header", "sub_header", "sub_sub_header"].includes(value.type)) {
         return {
@@ -72,5 +54,13 @@ const extractTableOfContents = (recordMap: RecordMap): TocItem[] => {
       }
       return null;
     })
-    .filter((item): item is TocItem => item !== null);
+    .filter(
+      (
+        item
+      ): item is {
+        id: string;
+        type: "header" | "sub_header" | "sub_sub_header";
+        text: string;
+      } => item !== null
+    );
 };

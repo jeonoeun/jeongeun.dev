@@ -60,7 +60,6 @@ export default function DarkModeToggle() {
 
   return (
     <div className="flex items-center justify-between rounded-full p-[2px] w-[105px] h-[37px] relative border">
-      {/* 선택된 아이콘 배경 */}
       <motion.div
         className="absolute w-[31px] h-[31px] rounded-full bg-[#E6E6E6] dark:bg-[#292929]"
         initial={{ x: selectedIndex * 34 }}
@@ -68,7 +67,6 @@ export default function DarkModeToggle() {
         transition={{ type: "spring", stiffness: 700, damping: 50 }}
       />
 
-      {/* 아이콘 버튼 */}
       {icons.map(({ type, icon }) => (
         <button
           key={type}

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where(.dark, [data-theme=dark]));
 
 [data-theme="light"] {
   @apply bg-white text-black;
@@ -13,14 +12,21 @@
 
 :root {
   --bg-color: #FFFFFF;
+  --text-color: #000000;
   --border-color: #e5e7eb;
   --hover-bg-color: #F7F7F7;
 }
 
-[data-theme='dark'] {
+[data-theme='dark'],
+.dark {
   --bg-color: #000000;
+  --text-color: #FFFFFF;
   --border-color: #333333;
   --hover-bg-color: #2C2C2C;
+}
+
+body {
+  @apply bg-[var(--bg-color)] text-[var(--text-color)];
 }
 
 @layer utilities {

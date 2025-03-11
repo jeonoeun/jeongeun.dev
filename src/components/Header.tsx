@@ -34,7 +34,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b border-[var(--border-color)] bg-white dark:bg-black">
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-[var(--border-color)] bg-[var(--bg-color)]">
       <div className="relative max-w-[1200px] h-[65px] mx-auto flex items-center justify-between px-4">
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer group">

@@ -74,7 +74,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
         animate={isOpen ? "open" : "closed"}
         variants={sidebarVariants}
         transition={{ ease: "easeInOut", duration: 0.3 }}
-        className={`md:hidden fixed top-0 right-0 w-[300px] h-screen border-l border-[var(--border-color)] bg-white dark:bg-black z-50 ${
+        className={`md:hidden fixed top-0 right-0 w-[300px] h-screen border-l border-[var(--border-color)] z-50 bg-[var(--bg-color)] ${
           isOpen ? "shadow-2xl" : ""
         }  rounded-tl-[16px]`}
       >

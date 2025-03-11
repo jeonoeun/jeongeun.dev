@@ -38,7 +38,7 @@ export default async function Page({
                   <h1 className="font-bold text-[32px] md:text-[44px] leading-[1.3] mb-1">
                     {postData.title}
                   </h1>
-                  <div className="flex items-center gap-1 text-[#A09F9C]">
+                  <div className="flex items-center gap-0.5 text-[#A09F9C]">
                     <span>{postData.date}</span>
                     <span>{"・"}</span>
                     <div className="flex items-center gap-0.5">

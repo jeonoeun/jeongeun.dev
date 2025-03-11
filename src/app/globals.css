@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
+@import "react-notion-x/src/styles.css";
+@import "prismjs/themes/prism-tomorrow.css";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --font-pretendard: "Pretendard", sans-serif;
+  --font-lato: "Lato", sans-serif;
+}
+
 @custom-variant dark (&:where(.dark, [data-theme=dark]));
-
-[data-theme="light"] {
-  @apply bg-white text-black;
-}
-
-[data-theme="dark"] {
-  @apply bg-black text-white;
-}
 
 :root {
   --bg-color: #FFFFFF;
@@ -33,4 +34,24 @@ body {
   .border {
     border-color: var(--border-color);
   }
+}
+
+.notion {
+  line-height: 1.8 !important;
+  color: var(--notion-text-color) !important;
+}
+
+.notion-quote {
+  background-color: rgb(248, 249, 250);
+  padding: 16px 16px 16px 32px !important;
+  font-size: 17px !important;
+  border-left-color: rgb(32, 201, 151) !important;
+}
+
+.notion-table-of-contents {
+  display: none;
+}
+
+.notion-yellow_background {
+  background-color: var(--notion-yellow-background) !important;
 }

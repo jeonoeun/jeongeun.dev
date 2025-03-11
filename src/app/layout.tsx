@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
+import { Lato } from "next/font/google";
+
+const pretendard = localFont({
+  src: "../fonts/PretendardVariable.woff2",
+  variable: "--font-pretendard",
+  display: "swap",
+});
+
+const lato = Lato({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-lato",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className={`antialiased`}>{children}</body>
+    <html lang="ko" className={`${pretendard.variable} ${lato.variable}`}>
+      <body className="font-pretendard antialiased">{children}</body>
     </html>
   );
 }
